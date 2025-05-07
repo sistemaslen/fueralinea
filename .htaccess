@@ -1,0 +1,13 @@
+php_value upload_max_filesize 200M
+php_value post_max_size 250M
+php_value max_execution_time 309200
+
+
+ErrorDocument 404 /personalizacion/error404.php
+
+DirectoryIndex index.php
+
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
