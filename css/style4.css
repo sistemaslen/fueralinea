@@ -432,7 +432,10 @@ ul.CTAs a {
 .seccion {
   border: 1px solid #ddd;
   background-color: #ffffff;
-  padding: 15px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .contenedorCaja {

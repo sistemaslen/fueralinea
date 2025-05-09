@@ -57,56 +57,14 @@
       <form id="formPedido" enctype="multipart/form-data">
         <div class="row">
           <div class="col-sm-12 seccion">
-            <br><br>
+            <br>
             <h4>Nuevo pedido fuera de línea</h4>
             <br>
             <p>Solicitud de trabajos fuera de línea</p>
             <br>
-       
 
-<div class="row d-none">
-  <div class="col-sm-2">
-  <div class="progress" style="height:30px">
-              <div class="progress-bar" style="width:20%;height:30px">
-              </div>
-  </div>
-  <p>Solicitud elaborada</p>
-  <p>27/04/2025</p>
-  </div>
-  <div class="col-sm-2">
-  <div class="progress" style="height:30px">
-              <div class="progress-bar" style="width:20%;height:30px">
-              </div>
-  </div>
-  <p>Autorización</p>
-  <p>27/04/2025</p>
-  </div>
-  <div class="col-sm-2">
-  <div class="progress" style="height:30px">
-              <div class="progress-bar" style="width:20%;height:30px">
-              </div>
-  </div>
-  <p>Orden de producción</p>
-  <p>27/04/2025</p>
-  </div>
-  <div class="col-sm-4">
-  <div class="progress" style="height:30px">
-              <div class="progress-bar" style="width:20%;height:30px">
-              </div>
-  </div>
-  <p>Producción</p>
-  <p>27/04/2025</p>
-  </div>
-  <div class="col-sm-2">
-  <div class="progress" style="height:30px">
-              <div class="progress-bar" style="width:20%;height:30px">
-              </div>
-  </div>
-  <p>Terminado</p>
-  <p>27/04/2025</p>
-  </div>
 
-</div>
+            
 
             <div class="row">
 
@@ -158,12 +116,6 @@
                 <input type="email" class="form-control" id="correoSolicitante" name="correoSolicitante" placeholder="Solicitante">
                 <br>
 
-
-
-
-
-
-
               </div>
               <div class="col-sm-3"></div>
             </div>
@@ -173,12 +125,16 @@
         <div class="row">
           <div class="col-sm-12 seccion">
             <h4>Datos del proyecto</h4>
+            <br>
             <div class="row">
-              <div class="col-sm-3"></div>
-              <div class="col-sm-6">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-4">
                 <label for="">Proyecto <span class="opcionObligatorio">*</span></label>
                 <input type="text" class="form-control" id="proyecto" name="proyecto" required>
-                <br>
+              </div>
+              <div class="col-sm-4">
+
                 <label for="">Cantidad <span class="opcionObligatorio">*</span></label>
                 <input type="number" class="form-control" id="cantidad" name="cantidad" required>
               </div>
@@ -188,72 +144,39 @@
         </div>
         <div class="row">
           <div class="col-sm-12 seccion">
-            <h4>Tipo de impresión</h4>
+            <h4>Indicaciones para producción</h4>
             <div class="row">
               <div class="col-sm-3"></div>
               <div class="col-sm-6">
 
                 <br>
-                <label for="">Sustrato <span class="opcionObligatorio">*</span></label>
-                <input type="text" class="form-control" id="sustrato" name="sustrato" required>
+                <label for="">Materiales</label>
+                <input type="text" class="form-control" id="materiales" name="materiales" >
                 <br>
-                <div class="row">
-                  <div class="col-sm-2 ">
-                    <label for="">Offset</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="Offset">
-                  </div>
-                  <div class="col-sm-2 ">
-                    <label for="">Digital</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="Digital">
-                  </div>
-                  <div class="col-sm-2 ">
-                    <label for="">G.F.</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="G.F.">
-                  </div>
-                  <div class="col-sm-2 ">
-                    <label for="">1 Tinta</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="1 Tinta">
-                  </div>
-                  <div class="col-sm-2 ">
-                    <label for="">2 Tintas</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="2 Tintas">
-                  </div>
-                  <div class="col-sm-2 ">
-                    <label for="">Color</label>
-                    <input type="checkbox" class="form-control" name="tipo_impresion[]" value="Color">
-                  </div>
-
-                </div>
+                <label for="">Tintas de impresión</label>
+                <input type="text" class="form-control" id="tintasImpresion" name="tintasImpresion" >
                 <br>
-                <label for="">Otro</label>
-                <input type="text" class="form-control" id="nombre" name="otro">
-
+                <label for="">Tipos de impresión</label>
+                <input type="text" class="form-control" id="tiposImpresion" name="tiposImpresion" >
                 <br>
                 <label for="">Acabados <span class="opcionObligatorio">*</span></label>
-                <textarea name="acabado" id="acabado" rows="5" class="form-control" required></textarea>
-
-
-                <br>
-                <label for="">Responsable de la entrega de archivos <span class="opcionObligatorio">*</span></label>
-                <select name="disenoResposanble" id="disenoResposanble" class="form-control" required>
-                  <option value="">Seleccionar</option>
-                  <option value="Nancy Rosas">Nancy Rosas</option>
-                  <option value="Javier Alonso">Javier Alonso</option>
-                  <option value="Silvia de Jesus">Silvia de Jesus</option>
-                  <option value="Mario Amador">Mario Amador</option>
-                  <option value="Eduardo Iturbide">Eduardo Iturbide</option>
-                </select>
-
+                <textarea class="form-control"  name="acabados" id="acabados" rows="5" required></textarea>
                 <br>
                 <label for="">Adjuntar archivo</label>
                 <input type="file" class="form-control" id="fileToUpload" name="fileToUpload">
                 <br>
+                <br>
                 <label for="">Fecha en que se requiere <span class="opcionObligatorio">*</span></label>
                 <input type="date" class="form-control" id="fechaRequerimiento" name="fechaRequerimiento" required>
                 <br>
-
                 <label for="">Observaciones</label>
                 <textarea name="obs" id="obs" rows="5" class="form-control"></textarea>
+                <br>
+                <label for="">Entregar a:</label>
+<select name="entregar" id="entregar" class="form-control">
+  <option value="">Seleccionar</option>
+</select>
+               
                 <br>
 
 
