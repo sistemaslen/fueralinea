@@ -44,8 +44,8 @@ $pedido = $_GET['pedido'];
 
     $pedido = $_GET['pedido'];
 
-    $sql4 = "SELECT id, tipo_cliente, solicitante, correo_solicitante, autoriza, correo_autoriza, departamento, area, proyecto, cantidad, sustrato, tipo_impresion, otro, acabado, responsable_diseno, archivo, fecha_requerimiento, obs, folio, fecha_entrega, status FROM pedidos_fuera WHERE id='$pedido' LIMIT 1";
-  
+    $sql4 = "SELECT id, tipo_cliente, solicitante, correo_solicitante, autoriza, correo_autoriza, departamento, area, proyecto, cantidad, sustrato, materiales, tipo_impresion, tintas_impresion, otro, acabado, responsable_diseno, archivo, fecha_requerimiento, obs, folio, fecha_entrega, status FROM pedidos_fuera WHERE id='$pedido' LIMIT 1";
+
     $result4 = $conn->query($sql4);
     if ($result4->num_rows > 0) {
       while ($row = $result4->fetch_assoc()) {
@@ -62,11 +62,14 @@ $pedido = $_GET['pedido'];
         $sustrato = $row["sustrato"];
 
         $tipo_impresion = $row["tipo_impresion"];
+        $materiales = $row["materiales"];
+        $tintas_impresion = $row["tintas_impresion"];
 
         $otro = $row["otro"];
         $acabado = $row["acabado"];
         $responsable_diseno = $row["responsable_diseno"];
         $archivo = $row["archivo"];
+        $archivoSolo = explode("/", $archivo);
         $fecha_requerimiento = $row["fecha_requerimiento"];
         $obs = $row["obs"];
         $status = $row["status"];
@@ -164,12 +167,12 @@ $pedido = $_GET['pedido'];
                   </div>
                   <div class="col-sm-3">
 
-                <label for="">Fecha en que se requiere</label>
-                <input type="date" class="form-control" id="fechaRequerimiento" name="fechaRequerimiento" required value="<?= $fecha_requerimiento ?>">
+                    <label for="">Fecha en que se requiere</label>
+                    <input type="date" class="form-control" id="fechaRequerimiento" name="fechaRequerimiento" required value="<?= $fecha_requerimiento ?>">
                   </div>
                   <div class="col-sm-3">
-                  <label for="">Fecha de entrega</label>
-                  <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega" required value="<?= $fecha_requerimiento ?>">
+                    <label for="">Fecha de entrega</label>
+                    <input type="date" class="form-control" id="fechaEntrega" name="fechaEntrega" required value="<?= $fecha_requerimiento ?>">
 
                   </div>
                   <div class="col-sm-3">
@@ -183,7 +186,7 @@ $pedido = $_GET['pedido'];
                 <br>
                 <label for="">Área <span class="opcionObligatorio">*</span></label>
                 <select name="areaResponsable" id="areaResponsable" class="form-control" required>
-                  <option value="<?=$area?>"><?=$area?></option>
+                  <option value="<?= $area ?>"><?= $area ?></option>
                   <option value="ACABADO">ACABADO</option>
                   <option value="ARTE, DISEÑO Y CREATIVIDAD">ARTE, DISEÑO Y CREATIVIDAD</option>
                   <option value="CONTABILIDAD">CONTABILIDAD</option>
@@ -207,7 +210,7 @@ $pedido = $_GET['pedido'];
                 <br>
                 <label for="departamento">Departamento <span class="opcionObligatorio">*</span></label>
                 <select name="departamento" id="departamento" class="form-control">
-                <option value="<?=$departamento?>"><?=$departamento?></option>
+                  <option value="<?= $departamento ?>"><?= $departamento ?></option>
                 </select>
                 <br>
                 <label for="personaAutoriza">Persona quien autoriza <span class="opcionObligatorio">*</span></label>
@@ -253,7 +256,7 @@ $pedido = $_GET['pedido'];
           </div>
         </div>
         <div class="row">
-        <div class="col-sm-12 seccion">
+          <div class="col-sm-12 seccion">
             <h4>Indicaciones para producción</h4>
             <div class="row">
               <div class="col-sm-3"></div>
@@ -261,29 +264,33 @@ $pedido = $_GET['pedido'];
 
                 <br>
                 <label for="">Materiales</label>
-                <input type="text" class="form-control" id="materiales" name="materiales" >
+                <input type="text" class="form-control" id="materiales" name="materiales" value="<?= $materiales ?>">
                 <br>
                 <label for="">Tintas de impresión</label>
-                <input type="text" class="form-control" id="tintasImpresion" name="tintasImpresion" >
+                <input type="text" class="form-control" id="tintasImpresion" name="tintasImpresion" value="<?= $tintas_impresion ?>">
                 <br>
                 <label for="">Tipos de impresión</label>
-                <input type="text" class="form-control" id="tiposImpresion" name="tiposImpresion" >
+                <input type="text" class="form-control" id="tiposImpresion" name="tiposImpresion" value="<?= $tipo_impresion ?>">
                 <br>
                 <label for="">Acabados <span class="opcionObligatorio">*</span></label>
-                <textarea class="form-control"  name="acabados" id="acabados" rows="5" required></textarea>
+                <textarea class="form-control" name="acabados" id="acabados" rows="5" required><?= $acabado ?></textarea>
                 <br>
                 <label for="">Adjuntar archivo</label>
+                <br>
+                <a href="<?= $archivo ?>" target="_blank" class="btn btn-primary btn-sm"><?= $archivoSolo[2] ?></a>
+                <br>
+                <br>
                 <input type="file" class="form-control" id="fileToUpload" name="fileToUpload">
                 <br>
-              
+
                 <label for="">Observaciones</label>
                 <textarea name="obs" id="obs" rows="5" class="form-control"></textarea>
                 <br>
                 <label for="">Entregar a:</label>
-<select name="entregar" id="entregar" class="form-control">
-  <option value="">Seleccionar</option>
-</select>
-               
+                <select name="entregar" id="entregar" class="form-control">
+                  <option value="">Seleccionar</option>
+                </select>
+
                 <br>
 
 
