@@ -60,7 +60,7 @@ if(isset($_GET['correo'])){
           <div class="col-sm-1"></div>
         <div class="col-sm-10 seccion">
         <br><br>
-        <h4>Consulta de pedidos</h4>
+        <h4>Consultas de pedidos</h4>
         <br>
         <form action="consulta-pedido" method="get">
         <div class="row">
@@ -69,7 +69,7 @@ if(isset($_GET['correo'])){
         <input type="email" class="form-control" placeholder="Escribe tu correo" name="correo" id="correo" required>
         </div>
         <div class="col-sm-2">
-        <button class="btn btn-primary">Consultar</button>
+        <button class="btn btn-primary">Consulta los pedidosr</button>
         </div>
       
         </div>
@@ -83,7 +83,7 @@ if(isset($_GET['correo'])){
     <th>ID</th>
     <th></th>
     <th>Fecha</th>
-    <th>Tipo de cliente</th>
+    <th>Tipos de clientes</th>
     <th>Cliente</th>
     <th>Proyecto</th>
     <th>Cantidad</th>
